@@ -1,7 +1,11 @@
 package UiTests.Steps.Hotel;
 
 import UiTests.Steps.TestContext;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 
 public class HotelHomePageSteps {
 
@@ -20,7 +24,27 @@ public class HotelHomePageSteps {
 
     // ******************** When section ***********
 
+    @When("The user clicks Sign in button")
+    public void theUserClicksSignInButton(){
+        context.pm.getHotelHomePage().clickSignIn();
+    }
+
+    @When("The user logged out the hotel system")
+    public void theUserLoggedOutTheHotelSystem(){
+        context.pm.getHotelHomePage().logoutUser();
+    }
+
+    @When("The user logged in the hotel system")
+    public void theUserLoggedInTheHotelSystem(){
+        context.pm.getHotelHomePage().clickSignIn();
+        context.pm.getHotelAuthenticationPage().userLogin();
+    }
+
 
     // ******************** Then section ***********
 
 }
+
+
+
+
